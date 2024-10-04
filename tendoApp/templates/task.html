@@ -1,0 +1,30 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>Tareas</h1>
+
+<div class="task-container">
+    {% for task in tasks %}
+    <div class="task-card">
+        <h2>{{ task.title }}</h2>
+        <p>{{ task.description }}</p>
+        <p>Creado el: {{ task.created }}</p>
+        <a href="{% url 'task_detail' task.id %}">Ver detalles</a>
+    </div>
+    {% endfor %}
+</div>
+
+<style>
+    .task-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+    .task-card {
+        border: 1px solid #ddd;
+        padding: 10px;
+        width: 200px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+</style>
+
+{% endblock %}

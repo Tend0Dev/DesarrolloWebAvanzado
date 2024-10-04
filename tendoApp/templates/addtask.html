@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1>Agregar tarea</h1>
+
+{% if error %}
+<p style="color: red">{{ error }}</p>
+{% endif %}
+
+<form method="POST" action="{% url 'addtask' %}">
+  {% csrf_token %} {{ form.as_p }}
+  <button type="submit">Agregar tarea</button>
+</form>
+
+{% endblock %}

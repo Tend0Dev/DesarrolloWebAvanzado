@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Lista de Países</h1>
+
+<h2>Agregar País</h2>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Agregar País</button>
+</form>
+
+<h2>Países existentes</h2>
+<ul>
+    {% for pais in paises %}
+        <li>{{ pais.nombre }}</li>
+    {% empty %}
+        <li>No hay países registrados.</li>
+    {% endfor %}
+</ul>
+{% endblock %}

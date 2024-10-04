@@ -1,0 +1,46 @@
+<h1>Formularios en HTML</h1>
+
+<form action="/base.php" method="post">
+  <h2>Datos Personales</h2>
+  <label>
+    Nombre
+    <input type="text" name="nombre" required placeholder="Angel" />
+  </label>
+  <br /><br />
+
+  <label>
+    Correo Electronico
+    <input type="email" name="email" required placeholder="miemail@gmail.com" />
+  </label>
+  <br /><br />
+
+  <label>
+    Teléfono
+    <input type="phone" name="phone" required placeholder="469-462-8888" />
+  </label>
+
+  <h2>Género</h2>
+  <label for="male">Masculino</label>
+  <input type="radio" id="male" name="gender" value="male" /><br /><br />
+
+  <label for="female">Femenino</label>
+  <input type="radio" id="female" name="gender" value="female" /> <br /><br />
+
+  <label for="other">Otro</label>
+  <input type="radio" id="other" name="gender" value="other" />
+
+  <h2>Preferencias</h2>
+  <label for="Musica">Música</label>
+  <input type="checkbox" id="Musica" name="Preferences" value="Musica" />
+
+  <label for="Deportes">Deportes</label>
+  <input type="checkbox" id="Deportes" name="Preferences" value="Deportes" />
+
+  <label for="Lectura">Lectura</label>
+  <input type="checkbox" id="Lectura" name="Preferences" value="Lectura" />
+
+  <h2>Comentarios</h2>
+  <textarea name="comentarios" id="comentarios"></textarea>
+
+  <button>Enviar</button>
+</form>

@@ -1,0 +1,8 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Editar Tarea</h1>
+<form method="POST">
+  {% csrf_token %} {{ form.as_p }}
+  <button type="submit">Guardar cambios</button>
+</form>
+<a href="{% url 'task' %}">Cancelar</a>
+{% endblock %}

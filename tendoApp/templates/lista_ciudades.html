@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    .lista-ciudades h1, 
+    .lista-ciudades h2, 
+    .lista-ciudades h3, 
+    .lista-ciudades ul, 
+    .lista-ciudades li {
+        font-size: 16px; /* Ajusta este valor según tus preferencias */
+    }
+    .lista-ciudades h1 { font-size: 24px; }
+    .lista-ciudades h2 { font-size: 20px; }
+    .lista-ciudades h3 { font-size: 18px; }
+    .lista-ciudades ul {
+        padding-left: 20px;
+    }
+</style>
+
+<div class="lista-ciudades">
+    <h1>Lista de Ciudades</h1>
+
+    <h2>Agregar Ciudad</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Agregar Ciudad</button>
+    </form>
+
+    <h2>Ciudades por País</h2>
+    {% if ciudades_por_pais %}
+        {% for pais, ciudades in ciudades_por_pais.items %}
+            <h3>{{ pais.nombre }}</h3>
+            <ul>
+                {% for ciudad in ciudades %}
+                    <li>
+                        {{ ciudad.nombre }}
+                        <a href="{% url 'eliminar_ciudad' ciudad.id %}" class="eliminar-btn">Eliminar</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endfor %}
+    {% else %}
+        <p>No hay ciudades registradas.</p>
+    {% endif %}
+</div>
+{% endblock %}

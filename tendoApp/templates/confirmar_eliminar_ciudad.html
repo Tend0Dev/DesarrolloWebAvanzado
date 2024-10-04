@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Confirmar eliminación</h1>
+<p>¿Estás seguro de que quieres eliminar la ciudad "{{ ciudad.nombre }}"?</p>
+<form method="POST">
+    {% csrf_token %}
+    <button type="submit">Sí, eliminar</button>
+</form>
+<a href="{% url 'lista_ciudades' %}">Cancelar</a>
+{% endblock %}

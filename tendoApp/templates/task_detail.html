@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Detalles de la Tarea</h1>
+<div>
+  <h2>{{ task.title }}</h2>
+  <p><strong>Descripción:</strong> {{ task.description }}</p>
+  <p>
+    <strong>Importante:</strong> {% if task.important %}Sí{% else %}No{% endif%}
+  </p>
+</div>
+<a href="{% url 'edit_task' task.id %}">Editar tarea</a>
+<a href="{% url 'task' %}">Volver a la lista de tareas</a>
+{% endblock content %}
